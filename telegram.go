@@ -66,14 +66,6 @@ func (b *Bot) Start() {
 
 				msg := tgbotapi.NewMessage(update.Message.Chat.ID, loginlink)
 				b.Send(msg)
-			case "validate":
-				var msg tgbotapi.MessageConfig
-				if b.IsUsertokenExists(update.Message.CommandArguments()) {
-					msg = tgbotapi.NewMessage(update.Message.Chat.ID, "true"+update.Message.CommandArguments())
-				} else {
-					msg = tgbotapi.NewMessage(update.Message.Chat.ID, "false"+update.Message.CommandArguments())
-				}
-				b.Send(msg)
 			}
 		}
 	}
